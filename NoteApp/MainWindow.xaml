@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="NoteApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NoteApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="5" Background="DarkSlateBlue" CornerRadius="1,3,3,1" MinHeight="300" MinWidth="200" x:Name="ButtonsPanel">
+            <Button x:Name="myButton" Click="myButton_Click" Margin="5,5,5,5" Background="DimGray" Width="100" >Click Me</Button>
+            <StackPanel MinHeight="170" Margin="0, 50, 0 ,0" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                <TextBox x:Name="NameBox" PlaceholderText="Enter Name..." Width="100" Height="50" Margin="10"></TextBox>
+                <CalendarDatePicker x:Name="NoteDatePicker" Width="100" Height="50" Margin="10" ></CalendarDatePicker>
+                <Button x:Name="DeleteButton" Content="Delete" Click="DeleteButton_Click"></Button>
+            </StackPanel>
+            <Button x:Name="createNoteButton" Click="createNoteButton_Click" Margin="5,5" Background="DimGray" Width="100">New note</Button>
+        </StackPanel>
+        <StackPanel x:Name="notesStack" Width="1000" Background="LightSlateGray" Padding="10" MaxHeight="600" MinHeight="300">
+            <ScrollViewer x:Name="scrollViewer" Height="950" IsVerticalScrollChainingEnabled="true" Padding="0,0,16,0">
+                <ItemsRepeater x:Name="NotesIR" ItemsSource="{x:Bind notes}" ItemTemplate="{StaticResource NoteTemplate}" >
+                </ItemsRepeater>
+            </ScrollViewer>
+        </StackPanel>
+    </StackPanel>
+
+</Window>
